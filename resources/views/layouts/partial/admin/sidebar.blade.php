@@ -12,9 +12,7 @@
         <div class="main-navbar">
             <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
             <div id="mainnav">
-                @if (auth()->user()->is_admin)
-                    <x-admin-links></x-admin-links>
-                @endif
+                <x-admin-links></x-admin-links>
             </div>
             <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
         </div>

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e0caf868b1f932807aa4126ca0b810d0",
+    "content-hash": "0357632d90b2be32e24f71a6a7d61772",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -1128,6 +1128,64 @@
                 }
             ],
             "time": "2020-06-13T08:05:20+00:00"
+        },
+        {
+            "name": "laracasts/generators",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laracasts/Laravel-5-Generators-Extended.git",
+                "reference": "5527f50260c6d3bf50a8e62e902e3fb44e87c4d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laracasts/Laravel-5-Generators-Extended/zipball/5527f50260c6d3bf50a8e62e902e3fb44e87c4d8",
+                "reference": "5527f50260c6d3bf50a8e62e902e3fb44e87c4d8",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~6.0|~7.0|~8.0|~9.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laracasts\\Generators\\GeneratorsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laracasts\\Generators\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Way",
+                    "email": "jeffrey@laracasts.com"
+                },
+                {
+                    "name": "Cristian Tabacitu",
+                    "email": "hello@tabaciu.ro"
+                }
+            ],
+            "description": "Advanced Laravel generators, that include schema information.",
+            "keywords": [
+                "generators",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/laracasts/Laravel-5-Generators-Extended/issues",
+                "source": "https://github.com/laracasts/Laravel-5-Generators-Extended/tree/2.0.1"
+            },
+            "time": "2022-02-09T14:12:17+00:00"
         },
         {
             "name": "laravel/fortify",
@@ -8422,5 +8480,5 @@
         "php": "^8.0.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.1.0"
 }
