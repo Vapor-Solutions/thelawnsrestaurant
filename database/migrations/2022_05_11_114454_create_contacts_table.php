@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('menus', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('menu_category_id');
-            $table->string('title');
-            $table->longText('description');
-            $table->float('cost_kes');
+            $table->string('name');
+            $table->string('email');
+            $table->string('phone_number')->nullable();
+            $table->string('subject')->nullable();
+            $table->longText('message')->nullable();
+            $table->boolean('is_contacted')->default(false);
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('contacts');
     }
 };

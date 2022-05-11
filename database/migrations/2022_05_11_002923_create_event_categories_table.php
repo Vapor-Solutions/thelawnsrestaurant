@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -13,14 +14,24 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('menus', function (Blueprint $table) {
+        Schema::create('event_categories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('menu_category_id');
             $table->string('title');
-            $table->longText('description');
-            $table->float('cost_kes');
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
+
+        DB::table('event_categories')->insert([
+            [
+                'title'=>'Weddings',
+            ],
+            [
+                'title'=>'Birthdays',
+            ],
+            [
+                'title'=>'Festivities',
+            ],
+        ]);
     }
 
     /**
@@ -30,6 +41,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('event_categories');
     }
 };
