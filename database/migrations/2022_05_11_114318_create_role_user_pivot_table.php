@@ -32,7 +32,7 @@ class CreateRoleUserPivotTable extends Migration
             ]
         ]);
 
-        User::find(1)->roles()->attach()
+        User::find(1)->roles()->attach(1);
     }
 
     /**
