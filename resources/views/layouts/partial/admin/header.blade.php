@@ -3,12 +3,12 @@
         <div class="main-header-left">
             <div class="logo-wrapper">
                 <a href="/">
-                    <img class="img-fluid" width="150" src="/nos-primary.png" alt="">
+                    <img class="img-fluid" width="115" src="/lawns-color.png" alt="">
                 </a>
             </div>
             <div class="dark-logo-wrapper">
                 <a href="/">
-                    <img class="img-fluid" width="150" src="/nos-tertiary-white.png" alt="">
+                    <img class="img-fluid" width="115" src="/lawns-bw.png" alt="">
                 </a>
             </div>
             <div class="toggle-sidebar">

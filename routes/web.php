@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Livewire\Admin;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,16 +15,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+Route::get('/', function () {
+    return env('MAINTENANCE_MODE') ? view('errors.maintenance') : view('welcome');
+})->name('home');
+
+Route::redirect('dashboard', 'admin/dashboard');
+
+Route::middleware(['auth:sanctum', 'verified'])->prefix('admin')->group(function () {
+    Route::get('/dashboard', Admin\Dashboard::class)->name('admin.dashboard');
+
+
+
+    Route::get('/clients', Admin\Clients\Index::class)->name('admin.clients.index');
+    Route::get('/clients/create', Admin\Clients\Create::class)->name('admin.clients.create');
+    Route::get('/clients/{id}/edit', Admin\Clients\Edit::class)->name('admin.clients.edit');
+    Route::get('/clients/maintenance', Admin\Clients\Maintenance::class)->name('admin.clients.maintenance');
+
+
 });

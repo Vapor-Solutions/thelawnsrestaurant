@@ -4,6 +4,7 @@ use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 
 class CreateRoleUserPivotTable extends Migration
@@ -28,7 +29,7 @@ class CreateRoleUserPivotTable extends Migration
                 'id' => 1,
                 'name' => 'Super Administrator',
                 'email' => 'info@thelawnsrestaurante.com',
-                'password' => env('DEFAULT_PASSWORD'),
+                'password' => Hash::make(env('DEFAULT_PASSWORD', '1234567890')),
             ]
         ]);
 

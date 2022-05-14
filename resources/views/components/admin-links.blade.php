@@ -15,6 +15,12 @@
                 <span>Dashboard</span>
             </a>
         </li>
+        <li class="dropdown">
+            <a class="nav-link" href="{{ route('profile.show') }}">
+                <i data-feather="user"></i>
+                <span>Profile</span>
+            </a>
+        </li>
         <li class="dropdown  @if (Route::is('admin.clients.*')) active @endif ">
             <a class="nav-link menu-title" href="javascript:void(0)">
                 <i data-feather="users"></i>
@@ -29,6 +35,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ route('admin.clients.maintenance') }}"
+                        class="{{ Route::currentRouteName() == 'admin.clients.maintenance' ? 'active' : '' }}">
+                        Maintenance Mode Subscribers
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('admin.clients.create') }}"
                         class="{{ Route::currentRouteName() == 'admin.clients.create' ? 'active' : '' }}">
                         Add a new Client
@@ -36,29 +48,23 @@
                 </li>
             </ul>
         </li>
-        <li class="dropdown  @if (Route::is('admin.projects.*')) active @endif ">
+        <li class="dropdown  @if (Route::is('admin.bookings.*')) active @endif ">
             <a class="nav-link menu-title" href="javascript:void(0)">
-                <i data-feather="briefcase"></i>
-                <span>Projects</span>
+                <i data-feather="calendar"></i>
+                <span>Bookings</span>
             </a>
             <ul class="nav-submenu menu-content"
-                style="display: {{ Request::is('admin/projects/*') ? 'block' : 'none' }}">
+                style="display: {{ Request::is('admin/bookings/*') ? 'block' : 'none' }}">
                 <li>
-                    <a href="{{ route('admin.projects.index') }}"
-                        class="{{ Route::currentRouteName() == 'admin.projects.index' ? 'active' : '' }}">
-                        Project Categories
+                    <a href="{{ route('admin.clients.index') }}"
+                        class="{{ Route::currentRouteName() == 'admin.bookings.index' ? 'active' : '' }}">
+                        Calendar
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.projects.index') }}"
-                        class="{{ Route::currentRouteName() == 'admin.projects.index' ? 'active' : '' }}">
-                        List of My Projects
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.projects.create') }}"
-                        class="{{ Route::currentRouteName() == 'admin.projects.create' ? 'active' : '' }}">
-                        Add a new Project
+                    <a href="{{ route('admin.clients.create') }}"
+                        class="{{ Route::currentRouteName() == 'admin.bookings.create' ? 'active' : '' }}">
+                        Make a Booking
                     </a>
                 </li>
             </ul>

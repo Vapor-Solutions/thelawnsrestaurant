@@ -1,6 +1,5 @@
 <header class="main-nav">
     <div class="sidebar-user text-center">
-        <a class="setting-primary" href="{{ route('profile.show') }}"><i data-feather="settings"></i></a>
         <img class="img-90 rounded-circle"
             src="{{ auth()->user()->profile_photo_url }}" alt="" />
         <a href="javascript:void(0)">

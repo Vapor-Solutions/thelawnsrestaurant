@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('phone_number');
             $table->dateTime('start_dateTime');
             $table->dateTime('end_dateTime');
+            $table->boolean('is_confirmed')->default(false);
+            $table->longText('special_request');
             $table->timestamps();
         });
     }
