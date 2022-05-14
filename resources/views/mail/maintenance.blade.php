@@ -102,7 +102,7 @@
                                         {{ env('POSTAL_CODE') }}</p>
                                     {{-- <p style="color: #999; margin-bottom: 0">Don't Like These Emails?<a
                                             href="javascript:void(0)" style="color: #00a19a">Unsubscribe</a></p> --}}
-                                    <p style="color: #999; margin-bottom: 0">Powered By DestinyPal</p>
+                                    <p style="color: #999; margin-bottom: 0">Powered By Steve Nyanumba Developments</p>
                                 </td>
                             </tr>
                         </tbody>

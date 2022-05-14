@@ -21,6 +21,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::redirect('dashboard', 'admin/dashboard');
+Route::redirect('admin', 'admin/dashboard');
 
 Route::middleware(['auth:sanctum', 'verified'])->prefix('admin')->group(function () {
     Route::get('/dashboard', Admin\Dashboard::class)->name('admin.dashboard');

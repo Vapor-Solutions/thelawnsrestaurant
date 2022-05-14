@@ -87,7 +87,7 @@
             var data = $('.validate-form').serialize();
             console.log(data)
             $.ajax({
-                url: '/maintenance-sub',
+                url: '/api/maintenance-sub',
                 type: "post",
                 dataType: 'json',
                 data: data,
