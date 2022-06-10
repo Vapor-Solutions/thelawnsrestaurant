@@ -69,5 +69,16 @@
                 </li>
             </ul>
         </li>
+        <li class="sidebar-main-title">
+            <div>
+                <h6>Media</h6>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a class="nav-link" href="javascript:void(0)">
+                <i data-feather="calendar"></i>
+                <span>Images</span>
+            </a>
+        </li>
     </ul>
 </div>

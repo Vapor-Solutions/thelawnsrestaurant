@@ -19,6 +19,12 @@
     <link rel="stylesheet" type="text/css" href="/maintenance/css/util.css">
     <link rel="stylesheet" type="text/css" href="/maintenance/css/main.css">
     <!--===============================================================================================-->
+
+    <style>
+        .bg6{
+            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+        }
+    </style>
 </head>
 
 <body>
@@ -89,16 +95,12 @@
             </div>
 
             <div class="flex-w">
-                <a href="/maintenance/#" class="flex-c-m size5 bg3 how1 trans-04 m-r-5">
+                <a href="https://www.facebook.com/The-Lawns-Restaurant-102029282002785/" class="flex-c-m size5 bg3 how1 trans-04 m-r-5">
                     <i class="fa fa-facebook"></i>
                 </a>
 
-                <a href="/maintenance/#" class="flex-c-m size5 bg4 how1 trans-04 m-r-5">
-                    <i class="fa fa-twitter"></i>
-                </a>
-
-                <a href="/maintenance/#" class="flex-c-m size5 bg5 how1 trans-04 m-r-5">
-                    <i class="fa fa-youtube-play"></i>
+                <a href="https://www.instagram.com/thelawnsrestaurant/" class="flex-c-m size5 bg6 how1 trans-04 m-r-5">
+                    <i class="fa fa-instagram"></i>
                 </a>
             </div>
         </div>

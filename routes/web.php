@@ -15,11 +15,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/**
+ * The Main Routes
+ */
 
 Route::get('/', function () {
-    return env('MAINTENANCE_MODE') ? view('errors.maintenance') : view('welcome');
+    return env('MAINTENANCE_MODE') ? view('errors.maintenance') : view('pages.home');
 })->name('home');
+Route::get('/about', function () {
+    return env('MAINTENANCE_MODE') ? redirect()->route('home') : view('pages.about');
+})->name('about');
+Route::get('/contact-us', function () {
+    return env('MAINTENANCE_MODE') ? redirect()->route('home') : view('pages.contacts');
+})->name('contact-us');
+Route::get('/events', function () {
+    return env('MAINTENANCE_MODE') ? redirect()->route('home') : view('pages.events');
+})->name('events');
+Route::get('/menu', function () {
+    return env('MAINTENANCE_MODE') ? redirect()->route('home') : view('pages.menu');
+})->name('menu');
+Route::get('/blog', function () {
+    return env('MAINTENANCE_MODE') ? redirect()->route('home') : view('pages.blog');
+})->name('blog');
+Route::get('/reservation', function () {
+    return env('MAINTENANCE_MODE') ? redirect()->route('home') : view('pages.reservation');
+})->name('reservation');
 
+
+
+
+
+/**
+ * The Administrator Routes
+ */
 Route::redirect('dashboard', 'admin/dashboard');
 Route::redirect('admin', 'admin/dashboard');
 

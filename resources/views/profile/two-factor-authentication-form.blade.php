@@ -26,7 +26,7 @@
                     {{ __('Two factor authentication is now enabled. Scan the following QR code using your phone\'s authenticator application.') }}
                 </p>
 
-                <div class="mt-3">
+                <div class="mt-3 text-black">
                     {!! $this->user->twoFactorQrCodeSvg() !!}
                 </div>
             @endif
