@@ -5,7 +5,7 @@
     "src": "resources/js/app.js"
   },
   "resources/js/front.js": {
-    "file": "assets/front-c42ce534.js",
+    "file": "assets/front-4ed993c7.js",
     "isEntry": true,
     "src": "resources/js/front.js"
   },
@@ -15,7 +15,7 @@
     "src": "resources/sass/app.scss"
   },
   "resources/sass/front.scss": {
-    "file": "assets/front-4ed993c7.js",
+    "file": "assets/front-c42ce534.js",
     "isEntry": true,
     "src": "resources/sass/front.scss"
   }
