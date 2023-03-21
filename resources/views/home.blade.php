@@ -5,6 +5,7 @@
     <x-front.slider />
     <x-front.category />
     <x-front.about2 />
+    <x-front.menu />
     <x-front.testimonials />
     <x-front.video />
     {{-- <x-front.numbers2 /> --}}

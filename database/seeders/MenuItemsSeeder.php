@@ -11,7 +11,7 @@ class MenuItemsSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run()
     {
         $appetizers = array(
             array("name" => "Mozzarella sticks", "price" => 7.99),
