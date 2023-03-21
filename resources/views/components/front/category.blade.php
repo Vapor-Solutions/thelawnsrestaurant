@@ -58,17 +58,16 @@
 
                 <div class="kf-text element-anim-1 scroll-animate" data-animate="active">
                     <p>
-                        Sed ut perspiciatis unde omnis iste natus error accusantium doloremque laudantium,
-                        totam rem
-                        aperiam eaque ipsa quae abillo inventore veritatis quasi architecto beatae vitae
-                        dicta sunt explicabo.
-                        Nemo enim ipsluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia con
+                        Step into a world of flavors and aromas at The Lawns Restaurant. Our menu offers a diverse range
+                        of dishes that showcase the beauty and complexity of Indian and Kenyan cuisine. Each plate is a
+                        work of art, carefully crafted with quality ingredients and authentic spices to deliver a
+                        symphony of flavors. Whether you're a fan of bold and spicy or mild and comforting, our menu has
+                        something to offer for every palate. Come and experience the beauty of our cuisine for yourself
                     </p>
                 </div>
 
-                <a href="menu-restaurant.html" class="kf-btn element-anim-1 scroll-animate"
-                    data-animate="active">
-                    <span>explore more Category</span>
+                <a href="{{ route('menu') }}" class="kf-btn element-anim-1 scroll-animate" data-animate="active">
+                    <span>explore more Categories</span>
                     <i class="fas fa-chevron-right"></i>
                 </a>
 

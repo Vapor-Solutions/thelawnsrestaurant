@@ -16,6 +16,7 @@ return new class extends Migration
             $table->dateTime('check_in');
             $table->dateTime('check_out');
             $table->foreignId('customer_id');
+            $table->dateTime('confirmed_at')->nullable();
             $table->timestamps();
         });
     }

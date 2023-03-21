@@ -40,17 +40,17 @@
                         <li>
                             <i class="las la-map-marker"></i>
                             <em>Location :</em>
-                            55 Main Street, New York
+                            {{ env('LOCATION') }}
                         </li>
                         <li>
                             <i class="las la-envelope-open-text"></i>
                             <em>Email Address :</em>
-                            kaffendev@gmail.com
+                            <a href="mailto:{{ env('EMAIL_ADDRESS') }}">{{ env('EMAIL_ADDRESS') }}</a>
                         </li>
                         <li>
                             <i class="las la-phone"></i>
                             <em>Phone Number :</em>
-                            +012 (345) 678 99
+                            <a href="tel:{{ env('PHONE_NUMBER') }}">{{ env('PHONE_NUMBER') }}</a>
                         </li>
                     </ul>
                 </div>
@@ -96,7 +96,7 @@
 
                 <!-- copyright -->
                 <div class="kf-copyright element-anim-1 scroll-animate" data-animate="active">
-                    Copyright © 2022 Kaffen. All Rights Reserved.
+                    Copyright © {{ Carbon\Carbon::now()->format('Y') }} The Lawns Restaurant, Nakuru. All Rights Reserved.
                 </div>
 
             </div>

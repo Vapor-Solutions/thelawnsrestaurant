@@ -10,8 +10,6 @@ class FrontendController extends Controller
     {
         return view('home');
     }
-
-
     public function about()
     {
         return view('about');
@@ -27,5 +25,13 @@ class FrontendController extends Controller
     public function contacts()
     {
         return view('contacts');
+    }
+    public function tableReservation()
+    {
+        return view('table-reservation');
+    }
+    public function roomReservation()
+    {
+        return view('room-reservation');
     }
 }

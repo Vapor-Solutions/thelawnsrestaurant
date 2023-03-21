@@ -16,6 +16,7 @@ return new class extends Migration
             $table->dateTime('reservation_dateTime');
             $table->foreignId('customer_id');
             $table->unsignedSmallInteger('pax');
+            $table->dateTime('confirmed_at')->nullable();
             $table->timestamps();
         });
     }

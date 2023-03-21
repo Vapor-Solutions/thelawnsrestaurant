@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('customer_id')->constrained();
+            $table->foreignId('customer_id')->constrained()->unique();
+            $table->string('customer_image_path');
             $table->unsignedTinyInteger('rating');
             $table->text('description');
             $table->timestamps();

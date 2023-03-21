@@ -7,7 +7,7 @@
 
                 <div class="kf-titles">
                     <div class="kf-subtitle element-anim-1 scroll-animate" data-animate="active">
-                        Need a Table On Coffee House
+                        Need a Table at the Lawns Restaurant
                     </div>
                     <h3 class="kf-title element-anim-1 scroll-animate" data-animate="active">
                         Booking Table For Your & Family Members
@@ -17,8 +17,8 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 align-self-center align-right">
 
-                <a href="reservation.html" class="kf-btn element-anim-1 scroll-animate" data-animate="active">
-                    <span>booking table</span>
+                <a href="{{ route('table-reservation') }}" class="kf-btn element-anim-1 scroll-animate" data-animate="active">
+                    <span>book a table</span>
                     <i class="fas fa-chevron-right"></i>
                 </a>
 

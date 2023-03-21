@@ -23,7 +23,11 @@ return new class extends Migration
             [
                 'id' => 1,
                 'title' => "Administrator"
-            ]
+            ],
+            [
+                'id' => 2,
+                'title' => "Non-Administrator"
+            ],
         ]);
     }
 
