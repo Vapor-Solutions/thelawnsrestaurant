@@ -6,42 +6,20 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
 
                 <div class="kf-category-items element-anim-1 scroll-animate" data-animate="active">
-                    <div class="kf-category-item">
-                        <div class="image kf-image-hover">
-                            <a href="menu-restaurant.html"><img src="/frontend/images/category1.jpg"
-                                    alt="" /></a>
-                        </div>
-                        <div class="desc">
-                            <h5 class="name">Chiken Roll</h5>
-                        </div>
-                    </div>
-                    <div class="kf-category-item">
-                        <div class="image kf-image-hover">
-                            <a href="menu-restaurant.html"><img src="/frontend/images/category2.jpg"
-                                    alt="" /></a>
-                        </div>
-                        <div class="desc">
-                            <h5 class="name">Salad Bowl</h5>
-                        </div>
-                    </div>
-                    <div class="kf-category-item">
-                        <div class="image kf-image-hover">
-                            <a href="menu-restaurant.html"><img src="/frontend/images/category3.jpg"
-                                    alt="" /></a>
-                        </div>
-                        <div class="desc">
-                            <h5 class="name">Lobsters</h5>
-                        </div>
-                    </div>
-                    <div class="kf-category-item">
-                        <div class="image kf-image-hover">
-                            <a href="menu-restaurant.html"><img src="/frontend/images/ins_gal1.jpg"
-                                    alt="" /></a>
-                        </div>
-                        <div class="desc">
-                            <h5 class="name">Italian Burger</h5>
-                        </div>
-                    </div>
+                    @if ($categories)
+                        @foreach ($categories as $category)
+                            <div class="kf-category-item">
+                                <div class="image kf-image-hover">
+                                    <a href="{{ route('menu') }}"><img src="{{ $category->image_path }}"
+                                            alt="" /></a>
+                                </div>
+                                <div class="desc">
+                                    <h5 class="name">{{ $category->title }}</h5>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+
                 </div>
 
             </div>

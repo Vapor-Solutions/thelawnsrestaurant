@@ -55,9 +55,6 @@
                         <li class="{{ request()->routeIs('about') ? 'active' : '' }}">
                             <a href="{{ route('about') }}">about</a>
                         </li>
-                        <li class="{{ request()->routeIs('about') ? 'active' : '' }}">
-                            <a href="{{ route('about') }}">about</a>
-                        </li>
                         <li class="{{ request()->routeIs('menu') ? 'active' : '' }}">
                             <a href="{{ route('menu') }}">menu</a>
                         </li>

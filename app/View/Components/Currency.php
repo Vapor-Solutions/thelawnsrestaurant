@@ -1,21 +1,19 @@
 <?php
 
-namespace App\View\Components\Front;
+namespace App\View\Components;
 
-use App\Models\MenuCategory;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Category extends Component
+class Currency extends Component
 {
     /**
      * Create a new component instance.
      */
-    public $categories;
     public function __construct()
     {
-        $this->categories = MenuCategory::all();
+        //
     }
 
     /**
@@ -23,6 +21,6 @@ class Category extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.front.category');
+        return view('components.currency');
     }
 }

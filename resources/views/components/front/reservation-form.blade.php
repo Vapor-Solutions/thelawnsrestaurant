@@ -1,11 +1,11 @@
- <!-- Section Reservation -->
- <section class="section kf-reservation kf-section-no-margin">
+<!-- Section Reservation -->
+<section class="section kf-reservation kf-section-no-margin">
     <div class="container">
 
         <div class="kf-reservation-form element-anim-1 scroll-animate" data-animate="active">
 
-            <div class="image-left" style="background-image: url(images/reservation5.jpg);"></div>
-            <div class="image-right" style="background-image: url(images/reservation6.jpg);"></div>
+            <div class="image-left" style="background-image: url(/frontend/images/reservation5.jpg);"></div>
+            <div class="image-right" style="background-image: url(/frontend/images/reservation6.jpg);"></div>
 
             <div class="kf-titles align-center">
                 <div class="kf-subtitle">
@@ -60,8 +60,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="kf-bts">
-                            <a href="#" class="kf-btn"
-                                onclick="$('#rform').submit(); return false;">
+                            <a href="#" class="kf-btn" onclick="$('#rform').submit(); return false;">
                                 <span>booking table</span>
                                 <i class="fas fa-chevron-right"></i>
                             </a>

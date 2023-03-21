@@ -2,7 +2,7 @@
 <div class="kf-footer">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
 
                 <!-- logo -->
                 <div class="kf-logo element-anim-1 scroll-animate" data-animate="active">
@@ -10,7 +10,7 @@
                 </div>
 
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
 
                 <!-- hours -->
                 <div class="kf-f-hours element-anim-1 scroll-animate" data-animate="active">
@@ -31,7 +31,7 @@
                 </div>
 
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
 
                 <!-- contact -->
                 <div class="kf-f-contact element-anim-1 scroll-animate" data-animate="active">
@@ -56,40 +56,7 @@
                 </div>
 
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
 
-                <!-- gallery -->
-                <div class="kf-f-gallery element-anim-1 scroll-animate" data-animate="active">
-                    <h5>Gallery</h5>
-                    <ul>
-                        <li>
-                            <a href="images/grid_gal1.jpg" class="kf-image-hover has-popup-image"><img
-                                    src="/frontend/images/grid_gal1.jpg" alt="" /></a>
-                        </li>
-                        <li>
-                            <a href="images/grid_gal2.jpg" class="kf-image-hover has-popup-image"><img
-                                    src="/frontend/images/grid_gal2.jpg" alt="" /></a>
-                        </li>
-                        <li>
-                            <a href="images/grid_gal3.jpg" class="kf-image-hover has-popup-image"><img
-                                    src="/frontend/images/grid_gal3.jpg" alt="" /></a>
-                        </li>
-                        <li>
-                            <a href="images/grid_gal4.jpg" class="kf-image-hover has-popup-image"><img
-                                    src="/frontend/images/grid_gal4.jpg" alt="" /></a>
-                        </li>
-                        <li>
-                            <a href="images/grid_gal5.jpg" class="kf-image-hover has-popup-image"><img
-                                    src="/frontend/images/grid_gal5.jpg" alt="" /></a>
-                        </li>
-                        <li>
-                            <a href="images/grid_gal6.jpg" class="kf-image-hover has-popup-image"><img
-                                    src="/frontend/images/grid_gal1.jpg" alt="" /></a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 align-center">
