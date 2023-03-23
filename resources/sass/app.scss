@@ -1,11 +1,22 @@
 @import "node_modules/bootstrap/scss/bootstrap.scss";
 
-.sb-sidenav , .sb-sidenav-footer {
+.sb-sidenav {
     background-color: #fff;
     background-image: linear-gradient(
         135deg,
         #0d3f1d 20%,
-        darken(#FFF, 35%) 60%
+        darken(rgb(185, 116, 11), 15%) 60%
     );
     background-size: cover;
+}
+
+
+.sb-sidenav-footer{
+    background-color: black;
+    background-image: linear-gradient(
+        40deg,
+        black,
+        black 60%
+    );
+    color: white
 }
