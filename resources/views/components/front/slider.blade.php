@@ -16,12 +16,12 @@
                                 Reserve Your <br>Table Today
                             </h2>
                             <div class="kf-bts">
-                                <a href="menu-restaurant.html" class="kf-btn">
+                                <a href="{{ route('menu') }}" class="kf-btn">
                                     <span>explore more</span>
                                     <i class="fas fa-chevron-right"></i>
                                 </a>
-                                <a href="reservation.html" class="kf-btn dark-btn">
-                                    <span>Book Room</span>
+                                <a href="{{ route('table-reservation') }}" class="kf-btn dark-btn">
+                                    <span>Book a  Table</span>
                                     <i class="fas fa-chevron-right"></i>
                                 </a>
                             </div>
@@ -44,7 +44,7 @@
                                 Explore The <br>Menu
                             </h2>
                             <div class="kf-bts">
-                                <a href="menu-restaurant.html" class="kf-btn">
+                                <a href="{{ route('menu') }}" class="kf-btn">
                                     <span>explore more</span>
                                     <i class="fas fa-chevron-right"></i>
                                 </a>
