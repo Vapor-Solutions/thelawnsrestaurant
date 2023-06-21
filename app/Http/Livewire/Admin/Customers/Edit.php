@@ -17,7 +17,7 @@ class Edit extends Component
         'phone_number' => 'required',
     ];
 
-    
+
     public function mount($id)
     {
         $customer = Customer::where('id', $id)->first();
@@ -26,11 +26,11 @@ class Edit extends Component
         $this->phone_number  = $customer->phone_number;
         $this->address  = $customer->address;
         $this->customerId = $id;
-     }
+    }
 
     public function updateCustomer()
     {
-        
+
         $this->validate();
 
         $customer = Customer::where('id', $this->customerId)->first();
@@ -40,12 +40,11 @@ class Edit extends Component
         $customer->phone_number = $this->phone_number;
         $customer->address = $this->address;
         $customer->update();
-
     }
 
     public function render()
     {
-        
+
         return view('livewire.admin.customers.edit');
     }
 }

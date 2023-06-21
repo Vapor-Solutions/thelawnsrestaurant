@@ -18,10 +18,10 @@
                             <th>Role</th>
                             <th>Actions</th>
                         </tr>
-                        </thead>
-                        <tbody class="">
-                            @foreach ($users as $user)
-                            <tr class="" >
+                    </thead>
+                    <tbody class="">
+                        @foreach ($users as $user)
+                            <tr class="">
                                 <td scope="row">{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
@@ -40,12 +40,14 @@
                                         </button>
                                 </td>
                             </tr>
-                            @endforeach
-                        </tbody>
-                        <tfoot>
-
-                        </tfoot>
+                        @endforeach
+                    </tbody>
+                    <tfoot>
+                    </tfoot>
                 </table>
+                @if (count($users))
+                {{ $users->links() }}
+                @endif
             </div>
 
         </div>

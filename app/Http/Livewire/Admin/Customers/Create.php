@@ -17,9 +17,8 @@ class Create extends Component
 
 
 
-    public function updateCustomer()
+    public function createCustomer()
     {
-        
         $this->validate();
 
         $customer = new Customer();

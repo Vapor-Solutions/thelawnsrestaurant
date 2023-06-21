@@ -2,12 +2,29 @@
 
 namespace App\Http\Livewire\Admin\MenuCategories;
 
+use App\Models\MenuCategory;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Index extends Component
 {
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+
     public function render()
     {
-        return view('livewire.admin.menu-categories.index');
+        $menuCategories = MenuCategory::paginate(10);
+        return view('livewire.admin.menu-categories.index', ['menuCategories' => $menuCategories]);
+    }
+
+    public function deleteMenuCategory($id)
+    {
+        $menuCategory = MenuCategory::where('id', $id)->first();
+
+        $menuCategory->delete();
+
+        $this->emit('done', [
+            'success' => "Successfully Deleted the Menu Category from the system"
+        ]);
     }
 }

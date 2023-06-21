@@ -17,7 +17,7 @@ class Index extends Component
 
     public function render()
     {
-        $customers = Customer::paginate(20);
+        $customers = Customer::paginate(10);
 
         return view('livewire.admin.customers.index', ['customers' => $customers]);
     }
@@ -25,6 +25,7 @@ class Index extends Component
     public function deleteCustomer($id)
     {
         $customer = Customer::where('id', $id)->first();
+    
         $customer->delete();
     }
 }
