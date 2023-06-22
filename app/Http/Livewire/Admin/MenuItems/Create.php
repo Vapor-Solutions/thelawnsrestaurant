@@ -10,14 +10,14 @@ use Livewire\WithFileUploads;
 
 class Create extends Component
 {
-    public $title, $description, $price, $image_path, $category;
+    public $title, $description, $price, $image_path, $menu_category_id;
     use WithFileUploads;
 
     protected $rules = [
         'title' => 'required',
         'description' => 'required',
         'price' => 'required',
-        'image' => 'image'
+        'image_path' => 'image'
     ];
 
     public function createMenuItem()
@@ -27,6 +27,7 @@ class Create extends Component
 
         $item = new MenuItem();
         $item->title = $this->title;
+        $item->menu_category_id = $this->menu_category_id;
         $item->description = $this->description;
         $item->price = $this->price;
 
@@ -37,7 +38,7 @@ class Create extends Component
 
         // $this->dispatchBrowserEvent('success', ['message'=>'Service has been added successfully']);
 
-        $this->reset();
+       //$this->reset();
     }
     public function render()
     {

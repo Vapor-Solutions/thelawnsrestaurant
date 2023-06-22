@@ -32,7 +32,7 @@
                                                     <td>{{ $customer->testimonials ? $customer->testimonials->description : 'No testimonial' }}
                                                     </td>
                                                     <td>
-                                                        <div class="d-flex flex-row justify-content-center">
+                                                        {{-- <div class="d-flex flex-row justify-content-center"> --}}
                                                             <a href="{{ route('admin.customers.edit', $customer->id) }}"
                                                                 class="btn btn-dark flex-col mx-2">
                                                                 <i class="fas fa-edit"></i>

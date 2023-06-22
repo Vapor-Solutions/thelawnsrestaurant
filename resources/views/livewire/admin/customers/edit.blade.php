@@ -7,7 +7,7 @@
             <form>
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Name: {{ $name }}</label>
+                        <label for="exampleInputEmail1">Name: {{ $title }}</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Name" wire:model='name'>
                         @error('name')
                             <p class="text-danger">{{ $message }}</p>

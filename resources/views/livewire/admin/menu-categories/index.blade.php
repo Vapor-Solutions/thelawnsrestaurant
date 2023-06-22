@@ -25,16 +25,16 @@
                                             @php
                                                 $counter = 1;
                                             @endphp
-                                            @foreach ($menuCategories as  $menuCategory)
+                                            @foreach ($menuCategories as $key => $menuCategory)
                                                 <tr>
-                                                    <td scope="row"> {{ $menuCategory->id }} </td>
+                                                    <td>{{ $menuCategories->firstItem() + $key }}</td>
                                                     <td>{{ $menuCategory->title }}</td>
                                                     <td>
                                                         <img src="{{ url('storage/menu_category_images/' . $menuCategory->image) }}"
                                                             height="50" width="50">
                                                     </td>
                                                     <td>
-                                                        <div class="d-flex flex-row justify-content-center">
+                                                        {{-- <div class="d-flex flex-row justify-content-center"> --}}
                                                             <a href="{{ route('admin.menu-categories.edit', $menuCategory->id) }}"
                                                                 class="btn btn-dark flex-col mx-2">
                                                                 <i class="fas fa-edit"></i>

@@ -20,14 +20,14 @@
                         </tr>
                     </thead>
                     <tbody class="">
-                        @foreach ($users as $user)
+                        @foreach ($users as $key => $user)
                             <tr class="">
-                                <td scope="row">{{ $user->id }}</td>
+                                <td>{{ $users->firstItem() + $key }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->role->title }}</td>
                                 <td>
-                                    <div class="d-flex flex-row justify-content-center">
+                                    {{-- <div class="d-flex flex-row justify-content-center"> --}}
                                         <a href="{{ route('admin.users.edit', $user->id) }}"
                                             class="btn btn-dark flex-col mx-2">
                                             <i class="fas fa-edit"></i>

@@ -1,3 +1,55 @@
 <div>
-    {{-- Close your eyes. Count to one. That is how long forever feels. --}}
+    <div>
+        <div>
+            <div class="main-content">
+                <section class="section">
+                    <div class="section-body">
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-12">
+                                <div class="card center">
+                                    <div class="card-header">
+                                        <h4>Create a New Room Type</h4>
+                                    </div>
+                                    <div class="card-body ring-offset-2">
+                                        <form>
+                                            <div class="form-group">
+                                                <label>Room Type Name</label>
+                                                <input type="text" wire:model="title" class="form-control">
+                                            </div>
+                                            @error('title')
+                                                <span class="error text-danger">{{ $message }}</span>
+                                            @enderror
+
+                                            <div class="form-group">
+                                                <label>Room Capacity</label>
+                                                <input type="number" wire:model="pax" class="form-control">
+                                            </div>
+                                            @error('pax')
+                                                <span class="error text-danger">{{ $message }}</span>
+                                            @enderror
+
+                                            <div class="form-group">
+                                                <label>Rate Charged Per Night</label>
+                                                <input type="number" wire:model="rate" class="form-control">
+                                            </div>
+                                            @error('rate')
+                                                <span class="error text-danger">{{ $message }}</span>
+                                            @enderror
+                                            <div class="card-body" class="btn-text-right">
+                                                <div class="buttons">
+                                                    <button class="btn btn-success" type="submit"
+                                                        wire:click.prevent='createRoomType'>Save</button>
+                                                    <a href="#" class="btn btn-danger">Cancel</a>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
 </div>

@@ -70,13 +70,13 @@
             <a class="nav-link {{ request()->routeIs('admin.menu_items')?'active':'collapsed' }}  " href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
                 aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                Room Reservations
+                Room Types
                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
             </a>
-            <div class="collapse {{ request()->routeIs('admin.table_reservations*')?'show':'' }}" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+            <div class="collapse {{ request()->routeIs('admin.room_types*')?'show':'' }}" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link {{ request()->routeIs('admin.table-reservations.index')?'active':'' }}" href="{{ route('admin.table-reservations.index') }}">View All Room Reservations</a>
-                    <a class="nav-link {{ request()->routeIs('admin.table-reservations.create')?'active':'' }}" href="{{ route('admin.table-reservations.create') }}">Create a New Room Reservation</a>
+                    <a class="nav-link {{ request()->routeIs('admin.room-types.index')?'active':'' }}" href="{{ route('admin.room-types.index') }}">View All Room Types</a>
+                    <a class="nav-link {{ request()->routeIs('admin.room-types.create')?'active':'' }}" href="{{ route('admin.room-types.create') }}">Create a New Room Type</a>
                 </nav>
             </div>
 

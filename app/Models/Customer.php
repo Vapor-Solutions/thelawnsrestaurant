@@ -14,4 +14,7 @@ class Customer extends Model
     public function testimonials() : HasOne{
         return $this->hasOne(Testimonial::class, 'customer_id');
     }
+    public function tableReservations() : HasMany{
+        return $this->hasMany(TableReservation::class, 'customer_id');
+    }
 }

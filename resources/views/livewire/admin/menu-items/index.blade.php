@@ -6,7 +6,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Menu Categories</h4>
+                                <h4>Menu Items List</h4>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -27,10 +27,9 @@
                                             @php
                                                 $counter = 1;
                                             @endphp
-                                            @foreach ($menuItems as  $menuItem)
+                                            @foreach ($menuItems as $key => $menuItem)
                                                 <tr>
-                                                    <td scope="row"> {{ $menuItem->id }} </td>
-
+                                                    <td> {{ $menuItems->firstItem() + $key }} </td>
                                                     <td>{{ $menuItem->title }}</td>
                                                     <td>{{ $menuItem->menuCategory->title }}</td>
                                                     <td>{{ $menuItem->price }}</td>
@@ -39,7 +38,6 @@
                                                             height="50" width="50">
                                                     </td>
                                                     <td>
-                                                        <div class="d-flex flex-row justify-content-center">
                                                             <a href="{{ route('admin.menu-items.edit', $menuItem->id) }}"
                                                                 class="btn btn-dark flex-col mx-2">
                                                                 <i class="fas fa-edit"></i>

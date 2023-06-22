@@ -14,12 +14,12 @@ class Edit extends Component
     public $title, $price, $menuItemId, $description, $image, $menu_category_id, $new_image;
     use WithFileUploads;
 
-    // protected $rules = [
-    //     'title' => 'required',
-    //     'price' => 'required',
-    //     'description' => 'required',
-    //     'image' => 'required'
-    // ];
+    protected $rules = [
+        'title' => 'required|min:6',
+        'price' => 'required',
+        'description' => 'required',
+        //'image' => 'required'
+    ];
 
     public function mount($id)
     {
@@ -37,10 +37,9 @@ class Edit extends Component
     public function updateMenuItems()
     {
 
-        //$this->validate();
+        $this->validate();
 
         $menuItem = MenuItem::where('id', $this->menuItemId)->first();
-
         $menuItem->title = $this->title;
         $menuItem->description = $this->description;
         $menuItem->price = $this->price;

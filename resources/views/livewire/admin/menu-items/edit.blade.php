@@ -7,12 +7,12 @@
                         <div class="col-12 col-md-6 col-lg-12">
                             <div class="card center">
                                 <div class="card-header">
-                                    <h4>Update Existing Menu Items</h4>
+                                    <h4>Update Existing Menu Item</h4>
                                 </div>
                                 <div class="card-body ring-offset-2">
                                     <form>
                                         <div class="form-group">
-                                            <label>Item Name: {{ $title }}</label>
+                                            <label>Item Name : {{ $title }}</label>
                                             <input type="text" wire:model="title" class="form-control">
                                         </div>
                                         @error('title')
@@ -34,14 +34,14 @@
                                         @enderror
 
                                         <div class="form-group">
-                                            <label>Item Description: {{ $description }}</label>
+                                            <label>Item Description : {{ $description }}</label>
                                             <input type="text" wire:model="description" class="form-control">
                                         </div>
                                         @error('description')
                                             <span class="error text-danger">{{ $message }}</span>
                                         @enderror
                                         <div class="form-group">
-                                            <label>Item Price: {{ $price }}</label>
+                                            <label>Item Price : {{ $price }}</label>
                                             <input type="number" wire:model="price" class="form-control">
                                         </div>
                                         @error('price')
@@ -66,7 +66,7 @@
                                         <div class="card-body" class="btn-text-right">
                                             <div class="buttons">
                                                 <button class="btn btn-success" type="submit"
-                                                    wire:click='updateMenuItems'>Update</button>
+                                                    wire:click.prevent='updateMenuItems'>Update</button>
                                                 <a href="#" class="btn btn-danger">Cancel</a>
                                             </div>
                                         </div>

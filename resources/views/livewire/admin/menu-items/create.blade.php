@@ -19,10 +19,10 @@
                                             @error('title')
                                                 <span class="error text-danger">{{ $message }}</span>
                                             @enderror
-                                            
+
                                             <div class="form-group">
                                                 <label>Choose the Category of your Menu Item</label>
-                                                <select wire:model="category" class="form-control">
+                                                <select wire:model="menu_category_id" class="form-control">
                                                     <option>Choose a Menu Item Category</option>
                                                     @foreach ($categories as $category)
                                                         <option value="{{ $category->id }}">{{ $category->title }}

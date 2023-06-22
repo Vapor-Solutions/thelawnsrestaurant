@@ -26,6 +26,8 @@ class Edit extends Component
         $this->phone_number  = $customer->phone_number;
         $this->address  = $customer->address;
         $this->customerId = $id;
+
+        //dd($id);
     }
 
     public function updateCustomer()
@@ -34,7 +36,6 @@ class Edit extends Component
         $this->validate();
 
         $customer = Customer::where('id', $this->customerId)->first();
-
         $customer->name = $this->name;
         $customer->email = $this->email;
         $customer->phone_number = $this->phone_number;
