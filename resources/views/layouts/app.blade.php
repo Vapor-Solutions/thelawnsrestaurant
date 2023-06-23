@@ -132,6 +132,36 @@
     @stack('modals')
 
     @livewireScripts()
+    <!--Toaster cdb-->
+    <script>
+        Livewire.on('done', (e) => {
+            if (e.success) {
+                Toast.fire({
+                    icon: 'success',
+                    text: e.success
+                })
+            }
+            if (e.warning) {
+                Toast.fire({
+                    icon: 'warning',
+                    text: e.warning
+                })
+            }
+            if (e.info) {
+                Toast.fire({
+                    icon: 'info',
+                    text: e.info
+                })
+            }
+            if (e.error) {
+                Toast.fire({
+                    icon: 'error',
+                    text: e.error
+                })
+            }
+        });
+    </script>
+
 </body>
 
 </html>

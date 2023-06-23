@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Admin;
 use App\Http\Controllers\FrontendController;
+use App\Models\Room;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,10 @@ Route::get('/blog', [FrontendController::class, 'blog'])->name('blog');
 Route::get('/contacts', [FrontendController::class, 'contacts'])->name('contacts');
 Route::get('/table_reservation', [FrontendController::class, 'tableResevation'])->name('table-reservation');
 Route::get('/room_reservation', [FrontendController::class, 'roomResevation'])->name('room-reservation');
+
+Route::get('/test', function () {
+    return Room::with('roomReservations')->get();
+});
 
 
 
@@ -83,6 +88,12 @@ Route::prefix('admin')->middleware(['auth:sanctum', config('jetstream.auth_sessi
         Route::get('/', Admin\TableReservations\Index::class)->name('admin.table-reservations.index');
         Route::get('/create', Admin\TableReservations\Create::class)->name('admin.table-reservations.create');
         Route::get('/{id}/edit', Admin\TableReservations\Edit::class)->name('admin.table-reservations.edit');
+    });
+    // RoomReservations
+    Route::prefix('room_reservations')->group(function () {
+        Route::get('/', Admin\RoomReservations\Index::class)->name('admin.room-reservations.index');
+        Route::get('/create', Admin\RoomReservations\Create::class)->name('admin.room-reservations.create');
+        Route::get('/{id}/edit', Admin\RoomReservations\Edit::class)->name('admin.room-reservations.edit');
     });
     // MenuItems
     Route::prefix('menu_items')->group(function () {

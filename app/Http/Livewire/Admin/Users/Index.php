@@ -4,9 +4,14 @@ namespace App\Http\Livewire\Admin\Users;
 
 use App\Models\User;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Index extends Component
 {
+
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+
     public function delete($id)
     {
         $user= User::find($id);
@@ -27,7 +32,7 @@ class Index extends Component
     public function render()
     {
         return view('livewire.admin.users.index',[
-            'users'=>User::all()
+            'users'=>User::paginate(10)
         ]);
     }
 }

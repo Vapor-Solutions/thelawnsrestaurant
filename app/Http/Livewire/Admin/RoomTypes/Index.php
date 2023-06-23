@@ -2,12 +2,24 @@
 
 namespace App\Http\Livewire\Admin\RoomTypes;
 
+use App\Models\RoomType;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Index extends Component
 {
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+
     public function render()
     {
-        return view('livewire.admin.room-types.index');
+        $roomTypes = RoomType::paginate(10);
+        return view('livewire.admin.room-types.index', ['roomTypes' => $roomTypes]);
+    }
+
+    public function deleteRoomType($id)
+    {
+        $roomType = RoomType::where('id', $id)->first();
+        $roomType->delete();
     }
 }
