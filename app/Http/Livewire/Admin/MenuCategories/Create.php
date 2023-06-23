@@ -25,7 +25,7 @@ class Create extends Component
         $category->title = $this->title;
 
         $imagename = Carbon::now()->timestamp.'.'.$this->image_path->extension();
-        $this->image_path->storeAs('menu_category_images', $imagename);
+        $this->image_path->storeAs('admin/menu_category_images', $imagename);
         $category->image_path = $imagename;
         $category->save();
 

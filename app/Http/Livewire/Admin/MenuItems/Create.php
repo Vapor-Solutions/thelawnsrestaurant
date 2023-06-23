@@ -20,6 +20,11 @@ class Create extends Component
         'image_path' => 'image'
     ];
 
+    // public function mount()
+    // {
+    //     $this->dispatchBrowserEvent('success', ['message'=>'Service has been added successfully']);
+    // }
+
     public function createMenuItem()
     {
 
@@ -32,7 +37,7 @@ class Create extends Component
         $item->price = $this->price;
 
         $imagename = Carbon::now()->timestamp . '.' . $this->image_path->extension();
-        $this->image_path->storeAs('menu_item_images', $imagename);
+        $this->image_path->storeAs('admin/menu_item_images', $imagename);
         $item->image_path = $imagename;
         $item->save();
 

@@ -34,8 +34,8 @@
                                                     <td>{{ $menuItem->menuCategory->title }}</td>
                                                     <td>{{ $menuItem->price }}</td>
                                                     <td>
-                                                        <img src="{{ url('storage/menu_category_images/' . $menuItem->image) }}"
-                                                            height="50" width="50">
+                                                        <img src="{{ asset('images/admin/menu_item_images') }}/{{ $menuItem->image_path }}"
+                                                            height="100" width="100">
                                                     </td>
                                                     <td>
                                                             <a href="{{ route('admin.menu-items.edit', $menuItem->id) }}"

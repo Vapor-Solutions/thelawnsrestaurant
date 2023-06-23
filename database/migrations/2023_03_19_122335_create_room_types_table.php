@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->unsignedSmallInteger('pax');
             $table->float('rate');
+            $table->enum('status',['Reserved','Not_Reserved']);
             $table->timestamps();
         });
     }

@@ -11,6 +11,8 @@ class Index extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
+ 
+
     public function render()
     {
         $menuItems = MenuItem::paginate(10);

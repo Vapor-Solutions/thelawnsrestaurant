@@ -20,6 +20,7 @@
                                                     <th>Title</th>
                                                     <th>Room Capacity</th>
                                                     <th>Rate Per Night</th>
+                                                    <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -27,23 +28,30 @@
                                                 @php
                                                     $counter = 1;
                                                 @endphp
-                                                @foreach ($roomTypes as $key =>  $roomType)
+                                                @foreach ($roomTypes as $key => $roomType)
                                                     <tr>
                                                         <td> {{ $roomTypes->firstItem() + $key }}</td>
                                                         <td>{{ $roomType->title }}</td>
                                                         <td>{{ $roomType->pax }}</td>
                                                         <td>{{ $roomType->rate }}</td>
+                                                        @if ($roomType->status == 'Reserved')
+                                                            <td class="text-success">Reserved</td>
+                                                        @elseif($roomType->status == 'Not_Reserved')
+                                                            <td class="text-danger">Not Reserved</td>
+                                                        @else
+                                                            <td class="text-warning">{{ $roomType->status }}</td>
+                                                        @endif
                                                         <td>
-                                                                <a href="{{ route('admin.room-types.edit', $roomType->id) }}"
-                                                                    class="btn btn-dark flex-col mx-2">
-                                                                    <i class="fas fa-edit"></i>
-                                                                </a>
-                                                                <button
-                                                                    onclick="confirm('Are you Sure you want to delete this Room Type?')||event.stopImmediatePropagation()"
-                                                                    wire:click="deleteRoomType({{ $roomType->id }})"
-                                                                    class="btn btn-danger flex-col mx-2">
-                                                                    <i class="fas fa-trash"></i>
-                                                                </button>
+                                                            <a href="{{ route('admin.room-types.edit', $roomType->id) }}"
+                                                                class="btn btn-dark flex-col mx-2">
+                                                                <i class="fas fa-edit"></i>
+                                                            </a>
+                                                            <button
+                                                                onclick="confirm('Are you Sure you want to delete this Room Type?')||event.stopImmediatePropagation()"
+                                                                wire:click="deleteRoomType({{ $roomType->id }})"
+                                                                class="btn btn-danger flex-col mx-2">
+                                                                <i class="fas fa-trash"></i>
+                                                            </button>
                                                         </td>
                                                     </tr>
                                                 @endforeach

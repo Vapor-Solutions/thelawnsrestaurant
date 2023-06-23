@@ -84,6 +84,12 @@ Route::prefix('admin')->middleware(['auth:sanctum', config('jetstream.auth_sessi
         Route::get('/create', Admin\TableReservations\Create::class)->name('admin.table-reservations.create');
         Route::get('/{id}/edit', Admin\TableReservations\Edit::class)->name('admin.table-reservations.edit');
     });
+    // RoomReservations
+    Route::prefix('room_reservations')->group(function () {
+        Route::get('/', Admin\RoomReservations\Index::class)->name('admin.room-reservations.index');
+        Route::get('/create', Admin\RoomReservations\Create::class)->name('admin.room-reservations.create');
+        Route::get('/{id}/edit', Admin\RoomReservations\Edit::class)->name('admin.room-reservations.edit');
+    });
     // MenuItems
     Route::prefix('menu_items')->group(function () {
         Route::get('/', Admin\MenuItems\Index::class)->name('admin.menu-items.index');

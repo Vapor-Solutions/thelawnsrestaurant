@@ -30,8 +30,8 @@
                                                     <td>{{ $menuCategories->firstItem() + $key }}</td>
                                                     <td>{{ $menuCategory->title }}</td>
                                                     <td>
-                                                        <img src="{{ url('storage/menu_category_images/' . $menuCategory->image) }}"
-                                                            height="50" width="50">
+                                                        <img src="{{ asset('images/admin/menu_category_images') }}/{{  $menuCategory->image_path}}"
+                                                            height="100" width="100">
                                                     </td>
                                                     <td>
                                                         {{-- <div class="d-flex flex-row justify-content-center"> --}}
