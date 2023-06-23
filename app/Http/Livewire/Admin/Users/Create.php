@@ -8,26 +8,28 @@ use Livewire\Component;
 
 class Create extends Component
 {
-    public User $user;
+    public $user, $name, $email, $role_id, $password;
 
     protected $rules = [
-        'user.role_id' => 'required',
-        'user.name' => 'required',
-        'user.email' => 'required|unique:users,email',
+        'name' =>'required',
+        'role_id' =>'required',
+        'email' =>'required',
+        'password' =>'required',
     ];
-    public function mount()
-    {
-        $this->user = new User();
-    }
 
+    public function createUser(){
 
-    public function save()
-    {
         $this->validate();
-        $this->user->password = Hash::make('1234567890');
-        $this->user->save();
 
-        return redirect()->route('admin.users.index');
+        $user = new User();
+
+        $user->name = $this->name;
+        $user->email = $this->email;
+        $user->role_id = $this->role_id;
+        $user->password = $this->password;
+
+        $user->save();
+
     }
 
     public function render()
@@ -35,3 +37,31 @@ class Create extends Component
         return view('livewire.admin.users.create');
     }
 }
+// {
+//     public User $user;
+
+//     protected $rules = [
+//         'user.role_id' => 'required',
+//         'user.name' => 'required',
+//         'user.email' => 'required|unique:users,email',
+//     ];
+//     public function mount()
+//     {
+//         $this->user = new User();
+//     }
+
+
+//     public function save()
+//     {
+//         $this->validate();
+//         $this->user->password = Hash::make('1234567890');
+//         $this->user->save();
+
+//         return redirect()->route('admin.users.index');
+//     }
+
+//     public function render()
+//     {
+//         return view('livewire.admin.users.create');
+//     }
+// }
