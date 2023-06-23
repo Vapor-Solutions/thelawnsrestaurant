@@ -34,20 +34,20 @@
                                                     <td>{{ $menuItem->menuCategory->title }}</td>
                                                     <td>{{ $menuItem->price }}</td>
                                                     <td>
-                                                        <img src="{{ asset('images/admin/menu_item_images') }}/{{ $menuItem->image_path }}"
+                                                        <img src="{{ asset('images/admin/menu_item_images/' . $menuItem->image_path) }}"
                                                             height="100" width="100">
                                                     </td>
                                                     <td>
-                                                            <a href="{{ route('admin.menu-items.edit', $menuItem->id) }}"
-                                                                class="btn btn-dark flex-col mx-2">
-                                                                <i class="fas fa-edit"></i>
-                                                            </a>
-                                                            <button
-                                                                onclick="confirm('Are you Sure you want to delete this Menu Item?')||event.stopImmediatePropagation()"
-                                                                wire:click="deleteMenuItem({{ $menuItem->id }})"
-                                                                class="btn btn-danger flex-col mx-2">
-                                                                <i class="fas fa-trash"></i>
-                                                            </button>
+                                                        <a href="{{ route('admin.menu-items.edit', $menuItem->id) }}"
+                                                            class="btn btn-dark flex-col mx-2">
+                                                            <i class="fas fa-edit"></i>
+                                                        </a>
+                                                        <button
+                                                            onclick="confirm('Are you Sure you want to delete this Menu Item?')||event.stopImmediatePropagation()"
+                                                            wire:click="deleteMenuItem({{ $menuItem->id }})"
+                                                            class="btn btn-danger flex-col mx-2">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
                                                     </td>
                                                 </tr>
                                             @endforeach

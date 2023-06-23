@@ -28,13 +28,13 @@ return new class extends Migration
 
         DB::table('users')->insert([
             [
-                'id'=>1,
-                'name'=>env('ADMIN_NAME'),
-                'role_id'=>1,
-                'email'=>env('ADMIN_EMAIL'),
-                'password'=>Hash::make(env('ADMIN_PASSWORD')),
+                'id' => 1,
+                'name' => env('ADMIN_NAME'),
+                'role_id' => 1,
+                'email' => env('ADMIN_EMAIL'),
+                'password' => Hash::make(env('ADMIN_PASSWORD')),
             ]
-            ]);
+        ]);
     }
 
     /**

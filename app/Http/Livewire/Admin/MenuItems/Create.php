@@ -11,7 +11,12 @@ use Livewire\WithFileUploads;
 class Create extends Component
 {
     public $title, $description, $price, $image_path, $menu_category_id;
+    public MenuItem $menuItem;
     use WithFileUploads;
+
+    protected $listeners = [
+        'done'=>'render'
+    ];
 
     protected $rules = [
         'title' => 'required',
@@ -20,26 +25,31 @@ class Create extends Component
         'image_path' => 'image'
     ];
 
-    // public function mount()
-    // {
-    //     $this->dispatchBrowserEvent('success', ['message'=>'Service has been added successfully']);
-    // }
+    public function mount()
+    {
+        $this->menuItem = new MenuItem();
+    }
 
     public function createMenuItem()
     {
 
         $this->validate();
 
-        $item = new MenuItem();
-        $item->title = $this->title;
-        $item->menu_category_id = $this->menu_category_id;
-        $item->description = $this->description;
-        $item->price = $this->price;
+
+        $this->menuItem->title = $this->title;
+        $this->menuItem->menu_category_id = $this->menu_category_id;
+        $this->menuItem->description = $this->description;
+        $this->menuItem->price = $this->price;
 
         $imagename = Carbon::now()->timestamp . '.' . $this->image_path->extension();
         $this->image_path->storeAs('admin/menu_item_images', $imagename);
-        $item->image_path = $imagename;
-        $item->save();
+        $this->menuItem->image_path = $imagename;
+        $this->menuItem->save();
+
+
+        $this->emit('done', [
+            'success'=>"You have Successfully Created a new Menu Item"
+        ]);
 
         // $this->dispatchBrowserEvent('success', ['message'=>'Service has been added successfully']);
 

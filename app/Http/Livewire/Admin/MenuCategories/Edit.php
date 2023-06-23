@@ -9,38 +9,44 @@ use Livewire\WithFileUploads;
 
 class Edit extends Component
 {
-    public $title, $image, $menuCategoryId, $new_image;
+    public $image, $new_image;
+    public $menuCategory;
     use WithFileUploads;
 
     protected $rules = [
-        'title'=>'required',
-        'image'=>'required',
+        'menuCategory.title' => 'required',
+        'new_image' => 'image',
+    ];
+
+    protected $listeners = [
+        'done' => 'render'
     ];
 
     public function mount($id)
     {
-        $menuCategory = MenuCategory::where('id', $id)->first();
-        $this->title = $menuCategory->title;
-        $this->image = $menuCategory->image_path;
-        
-        $this->menuCategoryId = $id;
+        $this->menuCategory = MenuCategory::find($id);
+            $this->image = MenuCategory::find($id)->image_path;
     }
 
-    public function updateMenuCategory()
+    public function save()
     {
 
-        $menuCategory = MenuCategory::where('id', $this->menuCategoryId)->first();
-        $menuCategory->title = $this->title;
+        $this->validate();
 
         if ($this->new_image) {
-
+            if (file_exists('/images/admin/menu_category_images/' . $this->image)) {
+                unlink('/images/admin/menu_category_images/' . $this->image);
+            }
             $imagename = Carbon::now()->timestamp . '.' . $this->new_image->extension();
-            $this->new_image->storeAs('menu_category_images', $imagename);
-            $menuCategory->image_path = $imagename;
+            $this->new_image->storeAs('admin/menu_category_images', $imagename);
+            $this->menuCategory->image_path = $imagename;
         }
 
-        $menuCategory->update();
-        //$this->dispatchBrowserEvent('success', ['message' => 'The menu category has been added successfully']);
+        $this->menuCategory->save();
+
+        $this->emit('done', [
+            'success' => 'Successfully Edited this Menu Category'
+        ]);
     }
 
     public function render()

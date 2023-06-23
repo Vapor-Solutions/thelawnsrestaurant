@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Admin;
 use App\Http\Controllers\FrontendController;
+use App\Models\Room;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,10 @@ Route::get('/blog', [FrontendController::class, 'blog'])->name('blog');
 Route::get('/contacts', [FrontendController::class, 'contacts'])->name('contacts');
 Route::get('/table_reservation', [FrontendController::class, 'tableResevation'])->name('table-reservation');
 Route::get('/room_reservation', [FrontendController::class, 'roomResevation'])->name('room-reservation');
+
+Route::get('/test', function () {
+    return Room::with('roomReservations')->get();
+});
 
 
 
