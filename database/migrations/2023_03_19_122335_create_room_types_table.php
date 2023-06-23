@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('room_types', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->unsignedSmallInteger('pax');
-            $table->float('rate');
-            $table->enum('status',['Reserved','Not_Reserved']);
+            $table->string('title'); // Double
+            $table->unsignedSmallInteger('pax'); // 2
+            $table->float('rate'); // 5700
+            // $table->enum('status',['Reserved','Not_Reserved']);
             $table->timestamps();
         });
     }

@@ -10,7 +10,8 @@
                         @foreach ($categories as $category)
                             <div class="kf-category-item">
                                 <div class="image kf-image-hover">
-                                    <a href="{{ route('menu') }}"><img src="{{ asset('images/admin/menu_category_images') }}/{{$category->image_path}}"
+                                    <a href="{{ route('menu') }}"><img
+                                            src="{{ asset('images/admin/menu_category_images/' . $category->image_path) }}"
                                             alt="" /></a>
                                 </div>
                                 <div class="desc">

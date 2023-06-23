@@ -11,14 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('room_reservations', function (Blueprint $table) {
+        Schema::create('rooms', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('check_in');
-            $table->dateTime('check_out')->nullable();
-            $table->foreignId('customer_id');
-            $table->foreignId('room_id');
-            $table->float('rate');
-            $table->dateTime('confirmed_at')->nullable();
+            $table->string('room_number');
             $table->timestamps();
         });
     }
@@ -28,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('room_reservations');
+        Schema::dropIfExists('rooms');
     }
 };
