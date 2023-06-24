@@ -17,7 +17,7 @@ class UsersSeeder extends Seeder
     public function run(): void
     {
         $faker = Factory::create();
-        for ($i=0; $i < 10; $i++) {
+        for ($i=0; $i < 30; $i++) {
             $user =  new User();
             $user->role_id = 2;
             $user->name = $faker->name;

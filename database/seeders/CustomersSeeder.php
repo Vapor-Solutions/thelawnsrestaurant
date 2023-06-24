@@ -16,7 +16,7 @@ class CustomersSeeder extends Seeder
     public function run(): void
     {
         $faker = Factory::create();
-        for ($i=0; $i < 150; $i++) {
+        for ($i=0; $i < 30; $i++) {
             $customer = new Customer();
             $customer->name = $faker->name;
             $customer->email = Str::slug($customer->name).'@gmail.com';

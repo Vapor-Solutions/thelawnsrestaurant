@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             TestimonialsSeeder::class,
             RoomsSeeder::class,
             RoomReservationsSeeder::class,
+            RoomTypesSeeder::class,
         ]);
     }
 }

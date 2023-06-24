@@ -10,6 +10,8 @@ class TableReservation extends Model
 {
     use HasFactory;
 
+ 
+
     public function tableReservations() : BelongsTo{
         return $this->belongsTo(Customer::class, 'customer_id');
     }

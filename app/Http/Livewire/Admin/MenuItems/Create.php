@@ -11,7 +11,9 @@ use Livewire\WithFileUploads;
 class Create extends Component
 {
     public $title, $description, $price, $image_path, $menu_category_id;
+
     public MenuItem $menuItem;
+    
     use WithFileUploads;
 
     protected $listeners = [
@@ -50,10 +52,7 @@ class Create extends Component
         $this->emit('done', [
             'success'=>"You have Successfully Created a new Menu Item"
         ]);
-
-        // $this->dispatchBrowserEvent('success', ['message'=>'Service has been added successfully']);
-
-       //$this->reset();
+        
     }
     public function render()
     {

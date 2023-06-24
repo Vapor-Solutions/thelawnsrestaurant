@@ -18,7 +18,7 @@ class Room extends Model
 
     public function roomReservations()
     {
-        return $this->hasMany(RoomReservation::class);
+        return $this->hasMany(RoomReservation::class, 'room_id');
     }
 
     public function getIsBookedAttribute()
