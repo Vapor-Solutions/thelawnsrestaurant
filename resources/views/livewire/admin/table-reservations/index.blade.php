@@ -19,7 +19,8 @@
                                                     </th>
                                                     <th>Customer Name</th>
                                                     <th>Table Capacity</th>
-                                                    <th>Date & Time for Reservation</th>
+                                                    <th>Reservation Date</th>
+                                                    <th>Reservation Time</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -32,7 +33,8 @@
                                                         <td> {{ $table_reservations->firstItem() + $key}} </td>
                                                         <td>{{ $table_reservation->tableReservations->name }}</td>
                                                         <td>{{ $table_reservation->pax }}</td>
-                                                        <td>{{ \Carbon\Carbon::parse($table_reservation->reservation_dateTime)->format('d/m/Y')}}</td>
+                                                        <td>{{ \Carbon\Carbon::parse($table_reservation->reservation_date)->format('d/m/Y')}}</td>
+                                                        <td>{{ \Carbon\Carbon::parse($table_reservation->reservation_time)->format('H:i:s')}}</td>
                                                         {{-- <td>{{ $table_reservation->reservation_dateTime->toDayDateTimeString() }}</td> --}}
                                                         <td>
                                                                 <a href="{{ route('admin.table-reservations.edit', $table_reservation->id) }}"

@@ -14,16 +14,16 @@ return new class extends Migration
     {
         Schema::create('table_reservations', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('reservation_date');
-            $table->dateTime('reservation_time');
+            $table->date('reservation_date');
+            $table->time('reservation_time');
             $table->foreignId('customer_id');
             $table->unsignedSmallInteger('pax');
             $table->dateTime('confirmed_at')->nullable();
             $table->timestamps();
         });
 
-        DB::table('table_reservations')
-        ->update(['reservation_time' => DB::raw('TIME(reservation_time)')]);
+        // DB::table('table_reservations')
+        // ->update(['reservation_time' => DB::raw('TIME(reservation_time)')]);
     }
 
 

@@ -23,6 +23,18 @@
                                             </div>
 
                                             <div class="form-group">
+                                                <label wire:ignore>Customer Name: </label>
+                                                <input type="text" wire:model="name" class="form-control" readonly>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Customer Email:</label>
+                                                <input type="text" wire:model="" class="form-control" readonly>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Customer Phone Number:</label>
+                                                <input type="text" wire:model="" class="form-control" readonly>
+                                            </div>
+                                            <div class="form-group">
                                                 <label>Resevation Date :</label>
                                                 <div class="input-group date" id="reservationdatetime"
                                                     data-target-input="nearest">
@@ -34,18 +46,21 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            @error('reservation_date')
+                                                <span class="error text-danger">{{ $message }}</span>
+                                            @enderror
                                             <div class="form-group">
                                                 <label>Reservation Time :</label>
                                                 <input type="time" wire:model="reservation_time"
                                                     class="form-control">
                                             </div>
-                                            @error('description')
+                                            @error('reservation_time')
                                                 <span class="error text-danger">{{ $message }}</span>
                                             @enderror
                                             <label>Table Capacity</label>
                                             <input type="text" wire:model="pax" class="form-control" max="10">
                                     </div>
-                                    @error('description')
+                                    @error('pax')
                                         <span class="error text-danger">{{ $message }}</span>
                                     @enderror
                                     <div class="card-body" class="btn-text-right">

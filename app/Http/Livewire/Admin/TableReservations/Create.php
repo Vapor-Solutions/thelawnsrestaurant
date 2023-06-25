@@ -11,7 +11,7 @@ class Create extends Component
 {
     public $client;
 
-    public $name, $reservation_date, $reservation_time, $pax;
+    public $name, $reservation_date, $reservation_time, $pax, $data;
 
     protected $rules = [
         //'name'=>'required',
@@ -27,9 +27,15 @@ class Create extends Component
         $data = json_decode($this->client);
         $reservation = new TableReservation();
         
+       //dd($data->name);
         $reservation->customer_id =$data->id;
         $reservation->reservation_date = Carbon::parse($this->reservation_date);
-        $reservation->reservation_time = Carbon::parse($this->reservation_time);
+
+        // $time = $this->reservation_time;
+        // $formatted = Carbon::parse($time)->format('H:i:s');
+
+        //dd($formatted);
+        $reservation->reservation_time = Carbon::parse($this->reservation_time)->toTimeString();
         $reservation->pax = $this->pax;
 
        // $timeOnly = Carbon::parse($model->your_column)->format('H:i:s');
