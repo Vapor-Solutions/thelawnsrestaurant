@@ -17,7 +17,7 @@ class Create extends Component
         //'name'=>'required',
         'reservation_date'=>'required',
         'reservation_time'=>'required',
-        'pax'=>'required',
+        'pax'=>'required|max:20',
     ];
 
     public function createTableReservation(){
@@ -27,7 +27,7 @@ class Create extends Component
         $data = json_decode($this->client);
         $reservation = new TableReservation();
         
-       //dd($data->name);
+
         $reservation->customer_id =$data->id;
         $reservation->reservation_date = Carbon::parse($this->reservation_date);
 

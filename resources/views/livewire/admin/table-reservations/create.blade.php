@@ -22,18 +22,19 @@
                                                 </select>
                                             </div>
 
-                                            <div class="form-group">
-                                                <label wire:ignore>Customer Name: </label>
+                                            {{-- <div class="form-group">
+                                                <label wire:ignore>Customer Name:</label>
                                                 <input type="text" wire:model="name" class="form-control" readonly>
                                             </div>
                                             <div class="form-group">
                                                 <label>Customer Email:</label>
-                                                <input type="text" wire:model="" class="form-control" readonly>
+                                                <input type="text" wire:model="email" class="form-control" readonly>
                                             </div>
                                             <div class="form-group">
                                                 <label>Customer Phone Number:</label>
-                                                <input type="text" wire:model="" class="form-control" readonly>
-                                            </div>
+                                                <input type="text" wire:model="phone_number" class="form-control" readonly>
+                                            </div> --}}
+
                                             <div class="form-group">
                                                 <label>Resevation Date :</label>
                                                 <div class="input-group date" id="reservationdatetime"
@@ -49,6 +50,7 @@
                                             @error('reservation_date')
                                                 <span class="error text-danger">{{ $message }}</span>
                                             @enderror
+
                                             <div class="form-group">
                                                 <label>Reservation Time :</label>
                                                 <input type="time" wire:model="reservation_time"
@@ -57,29 +59,31 @@
                                             @error('reservation_time')
                                                 <span class="error text-danger">{{ $message }}</span>
                                             @enderror
-                                            <label>Table Capacity</label>
-                                            <input type="text" wire:model="pax" class="form-control" max="10">
+                                            <div class="form-group">
+                                                <label>Table Capacity</label>
+                                                <input type="number" wire:model="pax" class="form-control"
+                                                    min="1" max="20">
+                                            </div>
+                                            @error('pax')
+                                                <span class="error text-danger">{{ $message }}</span>
+                                            @enderror
+                                            <div class="card-body" class="btn-text-right">
+                                                <div class="buttons">
+                                                    <button class="btn btn-success" type="submit"
+                                                        wire:click.prevent='createTableReservation'>Save</button>
+                                                    <a href="#" class="btn btn-danger">Cancel</a>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
-                                    @error('pax')
-                                        <span class="error text-danger">{{ $message }}</span>
-                                    @enderror
-                                    <div class="card-body" class="btn-text-right">
-                                        <div class="buttons">
-                                            <button class="btn btn-success" type="submit"
-                                                wire:click.prevent='createTableReservation'>Save</button>
-                                            <a href="#" class="btn btn-danger">Cancel</a>
-                                        </div>
-                                    </div>
-                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </section>
             </div>
-            </section>
         </div>
     </div>
-</div>
 </div>
 
 @push('scripts')

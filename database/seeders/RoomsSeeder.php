@@ -24,6 +24,7 @@ class RoomsSeeder extends Seeder
 
                 Room::create([
                     'room_number' => $roomName,
+                    // 'room_type_id' => rand(1, 3),
                 ]);
             }
         }

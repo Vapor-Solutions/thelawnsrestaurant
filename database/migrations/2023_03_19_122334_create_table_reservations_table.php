@@ -14,10 +14,11 @@ return new class extends Migration
     {
         Schema::create('table_reservations', function (Blueprint $table) {
             $table->id();
-            $table->date('reservation_date');
+            $table->dateTime('reservation_date');
             $table->time('reservation_time');
             $table->foreignId('customer_id');
             $table->unsignedSmallInteger('pax');
+            $table->enum('status',['Active','Expired']);
             $table->dateTime('confirmed_at')->nullable();
             $table->timestamps();
         });
