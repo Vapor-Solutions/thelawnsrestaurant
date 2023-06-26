@@ -12,8 +12,8 @@
                                     </div>
                                     <div class="card-body ring-offset-2">
                                         <form>
-                                            <div wire:ignore>
-                                                <select class="form-control" id="select2">
+                                            <div class="form-group" wire:ignore>
+                                                <select class="form-control" id="select2" class="form-control">
                                                     <option value="">Select Customer</option>
                                                     @foreach ($customers as $customer)
                                                         <option value="{{ $customer }}">{{ $customer->name }}
@@ -21,19 +21,20 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-
-                                            {{-- <div class="form-group">
+                                            <div class="form-group">
                                                 <label wire:ignore>Customer Name:</label>
-                                                <input type="text" wire:model="name" class="form-control" readonly>
+                                                <input type="text" class="form-control" readonly value=" {{ $customerData['name']?? null }}">
                                             </div>
+
                                             <div class="form-group">
                                                 <label>Customer Email:</label>
-                                                <input type="text" wire:model="email" class="form-control" readonly>
+                                                <input type="text" class="form-control" readonly value="{{ $customerData['email']?? null }}">
                                             </div>
+
                                             <div class="form-group">
                                                 <label>Customer Phone Number:</label>
-                                                <input type="text" wire:model="phone_number" class="form-control" readonly>
-                                            </div> --}}
+                                                <input type="text" class="form-control" readonly value="{{ $customerData['phone_number'] ?? null}}">
+                                            </div>
 
                                             <div class="form-group">
                                                 <label>Resevation Date :</label>

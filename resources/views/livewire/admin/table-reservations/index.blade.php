@@ -38,29 +38,11 @@
                                                         </td>
                                                         <td>{{ \Carbon\Carbon::parse($table_reservation->reservation_time)->format('H:i:s') }}
                                                         </td>
-                                                        {{-- <td>{{ $table_reservation->status }}</td> --}}
-                                                        @if ($table_reservation->reservation_date < \Illuminate\Support\Carbon::today())
-                                                            {{-- <div class="badge badge-success">Active</div> --}}
-                                                            <td class="text-danger" wire:poll.5s>{{ $table_reservation->status }}</td>
-                                                            @php
-                                                                $status = 'expired'; // Set the status to 'expired'
-                                                                // Execute the database update query
-                                                                DB::table('table_reservations')
-                                                                    ->where('id', $table_reservation->id)
-                                                                    ->update(['status' => $status]);
-                                                            @endphp
+                                                        @if ($table_reservation->status == 'Active')
+                                                            <td class="text-success">{{ $table_reservation->status }}</td>
                                                         @else
-                                                            <td class="text-success" wire:poll.5s>{{ $table_reservation->status }}
-                                                            </td>
-                                                            @php
-                                                            $status = 'active'; // Set the status to 'active'
-                                                            // Execute the database update query
-                                                            DB::table('table_reservations')
-                                                                ->where('id', $table_reservation->id)
-                                                                ->update(['status' => $status]);
-                                                        @endphp
+                                                            <td class="text-danger">{{ $table_reservation->status }}</td>
                                                         @endif
-
                                                         @if ($table_reservation->status == 'Active')
                                                         <td>
                                                             <a href="{{ route('admin.table-reservations.edit', $table_reservation->id) }}"

@@ -11,44 +11,54 @@ class Create extends Component
 {
     public $client;
 
-    public $name, $reservation_date, $reservation_time, $pax, $data;
+    public $name, $reservation_date, $reservation_time, $pax, $data, $customer_name, $customerData;
+
+    public function updatedClient($client)
+    {
+        $this->customerData = json_decode($client, true);
+    }
+
 
     protected $rules = [
         //'name'=>'required',
-        'reservation_date'=>'required',
-        'reservation_time'=>'required',
-        'pax'=>'required|max:20',
+        'reservation_date' => 'required',
+        'reservation_time' => 'required',
+        'pax' => 'required|max:20',
     ];
 
-    public function createTableReservation(){
+    public function createTableReservation()
+    {
 
         $this->validate();
 
         $data = json_decode($this->client);
         $reservation = new TableReservation();
-        
 
-        $reservation->customer_id =$data->id;
+
+        $reservation->customer_id = $data->id;
+        $reservation->tableReservations->name = $data->name;
+        //$this->customer_name = $reservation->customer_name;
+        //$reservation->customer_email =$data->email;
+        //$reservation->customer_phone =$data->phone_number;
         $reservation->reservation_date = Carbon::parse($this->reservation_date);
 
-        // $time = $this->reservation_time;
-        // $formatted = Carbon::parse($time)->format('H:i:s');
 
-        //dd($formatted);
+        //dd($this->client->name);
+
         $reservation->reservation_time = Carbon::parse($this->reservation_time)->toTimeString();
         $reservation->pax = $this->pax;
 
-       // $timeOnly = Carbon::parse($model->your_column)->format('H:i:s');
-        
         $reservation->save();
 
         $this->reset();
     }
 
+
+
     public function render()
     {
         $customers = Customer::all();
 
-        return view('livewire.admin.table-reservations.create', ['customers'=>$customers]);
+        return view('livewire.admin.table-reservations.create', ['customers' => $customers]);
     }
 }

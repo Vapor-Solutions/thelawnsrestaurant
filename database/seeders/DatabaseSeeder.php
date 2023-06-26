@@ -19,6 +19,12 @@ class DatabaseSeeder extends Seeder
             'role_id' => '1',
             'password' => Hash::make('123456789'),
         ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Steve Nyanumba',
+            'email' => 'info@thelawnsrestaurante.com',
+            'role_id' => '1',
+            'password' => Hash::make('123456789'),
+        ]);
         $this->call([
             CustomersSeeder::class,
             UsersSeeder::class,

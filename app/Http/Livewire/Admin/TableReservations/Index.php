@@ -11,6 +11,18 @@ class Index extends Component
 {
     use WithPagination;
     public $reservation;
+    protected $paginationTheme = 'bootstrap';
+
+    public function mount(){
+
+        foreach (TableReservation::all() as $key => $reservation) {
+            if ($reservation->reservation_date < \Illuminate\Support\Carbon::today()) {
+                $reservation->status  = 'Expired';
+                $reservation->save();
+            }
+        }
+
+    }
 
 
     public function render()
