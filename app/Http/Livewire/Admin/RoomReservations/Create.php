@@ -92,6 +92,8 @@ class Create extends Component
             $this->rate = null;
             session()->flash('error', 'Please provide valid check-in, check-out dates, and room type.');
         }
+
+        return redirect()->route('admin.room-reservations.index');
     }
 
     public function filterRoomNumbers()
