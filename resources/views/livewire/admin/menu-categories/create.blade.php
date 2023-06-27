@@ -37,7 +37,7 @@
                                         <div class="card-body" class="btn-text-right">
                                             <div class="buttons">
                                                 <button class="btn btn-success" type="submit" wire:click='createCategory'>Save</button>
-                                                <a href="#" class="btn btn-danger">Cancel</a>
+                                                <a href="{{ route('admin.menu-categories.index') }}" class="btn btn-danger">Back to list</a>
                                             </div>
                                         </div>
                                     </form>

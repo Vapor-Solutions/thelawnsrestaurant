@@ -67,7 +67,7 @@
                                             <div class="buttons">
                                                 <button class="btn btn-success" type="submit"
                                                     wire:click.prevent='updateMenuItems'>Update</button>
-                                                <a href="#" class="btn btn-danger">Cancel</a>
+                                                <a href="#" class="btn btn-danger">Back to list</a>
                                             </div>
                                         </div>
                                     </form>

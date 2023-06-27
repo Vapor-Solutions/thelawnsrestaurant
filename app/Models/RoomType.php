@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class RoomType extends Model
 {
     use HasFactory;
-    // public function roomType(): HasMany{
-    //     return $this->(Room::class, '');
-    // }
+    public function roomTypes(): HasMany{
+        return $this->hasMany(Room::class, 'room_type_id');
+    }
 }

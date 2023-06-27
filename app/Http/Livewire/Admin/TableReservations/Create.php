@@ -37,17 +37,9 @@ class Create extends Component
 
         $reservation->customer_id = $data->id;
         $reservation->tableReservations->name = $data->name;
-        //$this->customer_name = $reservation->customer_name;
-        //$reservation->customer_email =$data->email;
-        //$reservation->customer_phone =$data->phone_number;
         $reservation->reservation_date = Carbon::parse($this->reservation_date);
-
-
-        //dd($this->client->name);
-
         $reservation->reservation_time = Carbon::parse($this->reservation_time)->toTimeString();
         $reservation->pax = $this->pax;
-
         $reservation->save();
 
         $this->reset();

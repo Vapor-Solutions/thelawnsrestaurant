@@ -15,6 +15,9 @@ class RoomReservation extends Model
         'days',
         'total_charge'
     ];
+    protected $fillable = [
+        'rate',
+    ];
 
     public function getDaysAttribute()
     {
@@ -26,12 +29,13 @@ class RoomReservation extends Model
         return $this->days * $this->rate;
     }
 
-    public function roomCustomerReservations() : BelongsTo{
+    public function roomCustomerReservations(): BelongsTo
+    {
         return $this->belongsTo(Customer::class, 'customer_id');
     }
 
-    public function roomReservation() : BelongsTo{
+    public function roomReservation(): BelongsTo
+    {
         return $this->belongsTo(Room::class, 'room_id');
     }
-
 }

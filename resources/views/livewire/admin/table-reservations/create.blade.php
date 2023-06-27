@@ -72,7 +72,7 @@
                                                 <div class="buttons">
                                                     <button class="btn btn-success" type="submit"
                                                         wire:click.prevent='createTableReservation'>Save</button>
-                                                    <a href="#" class="btn btn-danger">Cancel</a>
+                                                    <a href="{{ route('admin.table-reservations.index') }}" class="btn btn-danger">Back to list</a>
                                                 </div>
                                             </div>
                                         </form>

@@ -8,7 +8,7 @@
                             <div class="col-12 col-md-6 col-lg-12">
                                 <div class="card center">
                                     <div class="card-header">
-                                        <h4>Create a New Table Reservation</h4>
+                                        <h4>Create a New Room Reservation</h4>
                                     </div>
                                     <div class="card-body ring-offset-2">
                                         <form>
@@ -21,58 +21,93 @@
                                                     @endforeach
                                                 </select>
                                             </div>
+
                                             <div class="form-group">
                                                 <label wire:ignore>Customer Name:</label>
-                                                <input type="text" class="form-control" readonly value=" {{ $customerData['name']?? null }}">
+                                                <input type="text" class="form-control" readonly
+                                                    value=" {{ $customerData['name'] ?? null }}">
                                             </div>
 
                                             <div class="form-group">
                                                 <label>Customer Email:</label>
-                                                <input type="text" class="form-control" readonly value="{{ $customerData['email']?? null }}">
+                                                <input type="text" class="form-control" readonly
+                                                    value="{{ $customerData['email'] ?? null }}">
                                             </div>
 
                                             <div class="form-group">
                                                 <label>Customer Phone Number:</label>
-                                                <input type="text" class="form-control" readonly value="{{ $customerData['phone_number'] ?? null}}">
+                                                <input type="text" class="form-control" readonly
+                                                    value="{{ $customerData['phone_number'] ?? null }}">
                                             </div>
 
                                             <div class="form-group">
-                                                <label>Resevation Date :</label>
+                                                <label for="room_type">Room Type</label>
+                                                <select class="form-control" name="room_type" id="room_type"
+                                                    wire:model='roomType' wire:change='filterRoomNumbers'>
+                                                    <option value="">Select a Room Type</option>
+                                                    @foreach ($roomTypes as $type)
+                                                        <option value="{{ $type->id }}">{{ $type->title }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="room_number">Room Number</label>
+                                                <select class="form-control" name="room_number" id="room_number"
+                                                    wire:model="roomNumber">
+                                                    <option value="">Select a Room Number</option>
+                                                    @if ($roomNumbers)
+                                                        @foreach ($roomNumbers as $room)
+                                                            <option value="{{ $room->id }}">{{ $room->room_number }}
+                                                            </option>
+                                                        @endforeach
+                                                    @endif
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Check in Date :</label>
                                                 <div class="input-group date" id="reservationdatetime"
                                                     data-target-input="nearest">
                                                     <input type="date" class="form-control datetimepicker-input"
-                                                        data-target="#reservationdatetime"
-                                                        wire:model='reservation_date' />
+                                                        data-target="#reservationdatetime" wire:model='check_in' />
                                                     <div class="input-group-append" data-target="#reservationdatetime"
                                                         data-toggle="datetimepicker">
                                                     </div>
                                                 </div>
                                             </div>
-                                            @error('reservation_date')
+                                            @error('check_in')
                                                 <span class="error text-danger">{{ $message }}</span>
                                             @enderror
 
                                             <div class="form-group">
-                                                <label>Reservation Time :</label>
-                                                <input type="time" wire:model="reservation_time"
-                                                    class="form-control">
+                                                <label>Check out Date :</label>
+                                                <div class="input-group date" id="reservationdatetime"
+                                                    data-target-input="nearest">
+                                                    <input type="date" class="form-control datetimepicker-input"
+                                                        data-target="#reservationdatetime" wire:model='check_out' />
+                                                    <div class="input-group-append" data-target="#reservationdatetime"
+                                                        data-toggle="datetimepicker">
+                                                    </div>
+                                                </div>
                                             </div>
-                                            @error('reservation_time')
+                                            @error('check_out')
                                                 <span class="error text-danger">{{ $message }}</span>
                                             @enderror
+
                                             <div class="form-group">
-                                                <label>Table Capacity</label>
-                                                <input type="number" wire:model="pax" class="form-control"
-                                                    min="1" max="20">
+                                                <label>Rate</label>
+                                                <input type="number" readonly value="{{ $rate }}" class="form-control"
+                                                    min="1" max="10000">
                                             </div>
-                                            @error('pax')
+                                            @error('rate')
                                                 <span class="error text-danger">{{ $message }}</span>
                                             @enderror
                                             <div class="card-body" class="btn-text-right">
                                                 <div class="buttons">
                                                     <button class="btn btn-success" type="submit"
-                                                        wire:click.prevent='createTableReservation'>Save</button>
-                                                    <a href="#" class="btn btn-danger">Cancel</a>
+                                                        wire:click.prevent='createRoomReservation'>Save</button>
+                                                    <a href="{{ route('admin.room-reservations.index') }}" class="btn btn-danger">Back to list</a>
                                                 </div>
                                             </div>
                                         </form>

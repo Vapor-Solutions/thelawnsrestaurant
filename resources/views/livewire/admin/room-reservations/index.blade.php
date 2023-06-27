@@ -33,26 +33,32 @@
                                                 @endphp
                                                 @foreach ($room_reservations as $key =>  $room_reservation)
                                                     <tr>
-                                                        <td>{{ $counter++ }}</td>
-                                                        {{-- <td> {{ $room_reservations->firstItem() + $key}} </td> --}}
+                                                        {{-- <td>{{ $counter++ }}</td> --}}
+                                                        <td> {{ $room_reservations->firstItem() + $key}} </td>
                                                         <td>{{ $room_reservation->roomCustomerReservations->name}}</td>
-                                                        <td></td>
-                                                        <td>{{ $room_reservation->pax}}</td>
+                                                        <td>{{ $room_reservation->roomReservation->roomType->title}}</td>
+                                                        <td>{{ $room_reservation->roomReservation->roomType->pax}}</td>
                                                         <td>{{ $room_reservation->roomReservation->room_number}}</td>
                                                         <td>{{ $room_reservation->rate }}</td>
                                                         <td>{{ \Carbon\Carbon::parse($room_reservation->check_in)->format('d/m/y') }}</td>
                                                         <td>{{ \Carbon\Carbon::parse($room_reservation->check_out)->format('d/m/y') }}</td>
                                                         <td>
-                                                                <a href="{{ route('admin.table-reservations.edit', $room_reservation->id) }}"
+                                                                <a href="{{ route('admin.room-reservations.edit', $room_reservation->id) }}"
                                                                     class="btn btn-dark flex-col mx-2">
                                                                     <i class="fas fa-edit"></i>
                                                                 </a>
                                                                 <button
-                                                                    onclick="confirm('Are you Sure you want to delete this Table Reservation?')||event.stopImmediatePropagation()"
-                                                                    wire:click="deleteTableReservation({{ $room_reservation->id }})"
+                                                                    onclick="confirm('Are you Sure you want to delete this Room Reservation?')||event.stopImmediatePropagation()"
+                                                                    wire:click="deleteRoomReservation({{ $room_reservation->id }})"
                                                                     class="btn btn-danger flex-col mx-2">
                                                                     <i class="fas fa-trash"></i>
                                                                 </button>
+                                                                <td>
+                                                                    <button 
+                                                                    onclick="confirm('Are you Sure you want to check out this Room?')||event.stopImmediatePropagation()"
+                                                                    wire:click="checkoutRoom({{ $room_reservation->id }})" >Check Out
+                                                                    </button>
+                                                                </td>
                                                         </td>
                                                     </tr>
                                                 @endforeach
