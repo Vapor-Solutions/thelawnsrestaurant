@@ -20,7 +20,6 @@
                                                     <th>Title</th>
                                                     <th>Room Capacity</th>
                                                     <th>Rate Per Night</th>
-                                                    <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -34,13 +33,6 @@
                                                         <td>{{ $roomType->title }}</td>
                                                         <td>{{ $roomType->pax }}</td>
                                                         <td>{{ $roomType->rate }}</td>
-                                                        @if ($roomType->status == 'Reserved')
-                                                            <td class="text-success">Reserved</td>
-                                                        @elseif($roomType->status == 'Not_Reserved')
-                                                            <td class="text-danger">Not Reserved</td>
-                                                        @else
-                                                            <td class="text-warning">{{ $roomType->status }}</td>
-                                                        @endif
                                                         <td>
                                                             <a href="{{ route('admin.room-types.edit', $roomType->id) }}"
                                                                 class="btn btn-dark flex-col mx-2">

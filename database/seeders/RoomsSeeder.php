@@ -14,7 +14,7 @@ class RoomsSeeder extends Seeder
     public function run(): void
     {
         $floors = ['A', 'B', 'C', 'D', 'E'];
-        $roomsPerFloor = 30;
+        $roomsPerFloor = 5;
 
         for ($floorIndex = 0; $floorIndex < count($floors); $floorIndex++) {
             $floor = $floors[$floorIndex];
@@ -24,6 +24,7 @@ class RoomsSeeder extends Seeder
 
                 Room::create([
                     'room_number' => $roomName,
+                    'room_type_id' => rand(1, 3),
                 ]);
             }
         }

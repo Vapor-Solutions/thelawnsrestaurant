@@ -5,6 +5,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class RoomReservation extends Model
 {
@@ -13,6 +14,9 @@ class RoomReservation extends Model
     protected $appends = [
         'days',
         'total_charge'
+    ];
+    protected $fillable = [
+        'rate',
     ];
 
     public function getDaysAttribute()
@@ -23,5 +27,15 @@ class RoomReservation extends Model
     public function getTotalChargeAttribute()
     {
         return $this->days * $this->rate;
+    }
+
+    public function roomCustomerReservations(): BelongsTo
+    {
+        return $this->belongsTo(Customer::class, 'customer_id');
+    }
+
+    public function roomReservation(): BelongsTo
+    {
+        return $this->belongsTo(Room::class, 'room_id');
     }
 }

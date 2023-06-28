@@ -12,138 +12,89 @@
                                     </div>
                                     <div class="card-body ring-offset-2">
                                         <form>
-                                            <div class="form-group">
-                                                <label>Customer Name</label>
-                                                <input type="text" wire:model="title" class="form-control">
-                                            </div>
-                                            @error('title')
-                                                <span class="error text-danger">{{ $message }}</span>
-                                            @enderror
-                                            <div class="form-group">
-                                                <label>Date and time:</label>
-                                                  <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
-                                                      <input type="text" class="form-control datetimepicker-input" data-target="#reservationdatetime"/>
-                                                      <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
-                                                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                            {{-- <div class="form-group">
-                                                <label>Choose the Category of your Menu Item</label>
-                                                <select wire:model="menu_category_id" class="form-control">
-                                                    <option>Choose a Menu Item Category</option>
-                                                    @foreach ($categories as $category)
-                                                        <option value="{{ $category->id }}">{{ $category->title }}
+                                            <div class="form-group" wire:ignore>
+                                                <select class="form-control" id="select2" class="form-control">
+                                                    <option value="">Select Customer</option>
+                                                    @foreach ($customers as $customer)
+                                                        <option value="{{ $customer }}">{{ $customer->name }}
                                                         </option>
                                                     @endforeach
                                                 </select>
                                             </div>
-                                            @error('category')
-                                                <span class="error text-danger">{{ $message }}</span>
-                                            @enderror --}}
+                                            <div class="form-group">
+                                                <label wire:ignore>Customer Name:</label>
+                                                <input type="text" class="form-control" readonly value=" {{ $customerData['name']?? null }}">
+                                            </div>
 
                                             <div class="form-group">
-                                                <label>Reservation Date</label>
-                                                <input type="text" wire:model="description" class="form-control">
+                                                <label>Customer Email:</label>
+                                                <input type="text" class="form-control" readonly value="{{ $customerData['email']?? null }}">
                                             </div>
-                                            @error('description')
+
+                                            <div class="form-group">
+                                                <label>Customer Phone Number:</label>
+                                                <input type="text" class="form-control" readonly value="{{ $customerData['phone_number'] ?? null}}">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Resevation Date :</label>
+                                                <div class="input-group date" id="reservationdatetime"
+                                                    data-target-input="nearest">
+                                                    <input type="date" class="form-control datetimepicker-input"
+                                                        data-target="#reservationdatetime"
+                                                        wire:model='reservation_date' />
+                                                    <div class="input-group-append" data-target="#reservationdatetime"
+                                                        data-toggle="datetimepicker">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @error('reservation_date')
                                                 <span class="error text-danger">{{ $message }}</span>
                                             @enderror
-                                            <label>Table Capacity</label>
-                                            <input type="text" wire:model="description" class="form-control">
+
+                                            <div class="form-group">
+                                                <label>Reservation Time :</label>
+                                                <input type="time" wire:model="reservation_time"
+                                                    class="form-control">
+                                            </div>
+                                            @error('reservation_time')
+                                                <span class="error text-danger">{{ $message }}</span>
+                                            @enderror
+                                            <div class="form-group">
+                                                <label>Table Capacity</label>
+                                                <input type="number" wire:model="pax" class="form-control"
+                                                    min="1" max="20">
+                                            </div>
+                                            @error('pax')
+                                                <span class="error text-danger">{{ $message }}</span>
+                                            @enderror
+                                            <div class="card-body" class="btn-text-right">
+                                                <div class="buttons">
+                                                    <button class="btn btn-success" type="submit"
+                                                        wire:click.prevent='createTableReservation'>Save</button>
+                                                    <a href="{{ route('admin.table-reservations.index') }}" class="btn btn-danger">Back to list</a>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
-                                    @error('description')
-                                        <span class="error text-danger">{{ $message }}</span>
-                                    @enderror
-                                    <div class="card-body" class="btn-text-right">
-                                        <div class="buttons">
-                                            <button class="btn btn-success" type="submit"
-                                                wire:click='createMenuItem'>Save</button>
-                                            <a href="#" class="btn btn-danger">Cancel</a>
-                                        </div>
-                                    </div>
-                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </section>
             </div>
-            </section>
         </div>
     </div>
 </div>
-</div>
 
-{{-- <div class="col-md-6">
-    <div class="card card-primary">
-        <div class="card-header">
-            <h3 class="card-title">Date picker</h3>
-        </div>
-        <div class="card-body">
-            <!-- Date -->
-            <div class="form-group">
-                <label>Date:</label>
-                <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                    <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" />
-                    <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                    </div>
-                </div>
-            </div>
-            <!-- Date and time -->
-            <div class="form-group">
-                <label>Date and time:</label>
-                <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
-                    <input type="text" class="form-control datetimepicker-input"
-                        data-target="#reservationdatetime" />
-                    <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
-                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                    </div>
-                </div>
-            </div>
-            <!-- /.form group -->
-            <!-- Date range -->
-            <div class="form-group">
-                <label>Date range:</label>
-
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">
-                            <i class="far fa-calendar-alt"></i>
-                        </span>
-                    </div>
-                    <input type="text" class="form-control float-right" id="reservation">
-                </div>
-                <!-- /.input group -->
-            </div>
-            <!-- /.form group -->
-
-            <!-- Date and time range -->
-            <div class="form-group">
-                <label>Date and time range:</label>
-
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="far fa-clock"></i></span>
-                    </div>
-                    <input type="text" class="form-control float-right" id="reservationtime">
-                </div>
-                <!-- /.input group -->
-            </div>
-            <!-- /.form group -->
-
-            <!-- Date and time range -->
-            <div class="form-group">
-                <label>Date range button:</label>
-
-                <div class="input-group">
-                    <button type="button" class="btn btn-default float-right" id="daterange-btn">
-                        <i class="far fa-calendar-alt"></i> Date range picker
-                        <i class="fas fa-caret-down"></i>
-                    </button>
-                </div>
-            </div>
-            <!-- /.form group -->
-        </div>
-    </div>
-</div> --}}
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            $('#select2').select2();
+            $('#select2').on('change', function(e) {
+                var data = $('#select2').select2("val");
+                @this.set('client', data);
+            });
+        });
+    </script>
+@endpush

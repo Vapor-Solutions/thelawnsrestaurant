@@ -30,7 +30,7 @@ class RoomReservationsSeeder extends Seeder
 
             RoomReservation::create([
                 'room_id' => $room->id,
-                'customer_id' => $customer->id,
+                'customer_id' => rand(1, 30),
                 'check_in' => $checkIn,
                 'check_out' => $checkOut,
                 'rate' => rand(4500, 7500)

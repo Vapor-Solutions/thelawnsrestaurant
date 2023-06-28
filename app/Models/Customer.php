@@ -17,4 +17,7 @@ class Customer extends Model
     public function tableReservations() : HasMany{
         return $this->hasMany(TableReservation::class, 'customer_id');
     }
+    public function roomReservations() : HasMany{
+        return $this->hasMany(RoomReservation::class, 'customer_id');
+    }
 }

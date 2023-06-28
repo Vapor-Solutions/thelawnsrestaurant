@@ -57,6 +57,7 @@
     <title>Dashboard - The Lawns Restaurant</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
 
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link href="/admin/css/styles.css" rel="stylesheet" />
@@ -128,6 +129,12 @@
     <script src="/admin/assets/demo/chart-bar-demo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="/admin/js/datatables-simple-demo.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    @livewireStyles 
+
+    @stack('scripts')
 
     @stack('modals')
 

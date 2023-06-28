@@ -19,7 +19,7 @@ class Edit extends Component
         'price' => 'required',
         'description' => 'required',
         //'image' => 'required'
-    ];
+    ]; 
 
     public function mount($id)
     {
